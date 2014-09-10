@@ -1,5 +1,6 @@
 // server.js
 
+
 // BASE SETUP
 // =============================================================================
 
@@ -17,9 +18,9 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080; 		// set our port
 
-//DB connection
+// DB connection
 
-//read the username and password from file
+// read the username and password from file
 var file = './conf/settings.json';
 
 fs.readFile(file, 'utf8', function (err, data) {
@@ -30,13 +31,14 @@ fs.readFile(file, 'utf8', function (err, data) {
 	
   data = JSON.parse(data);
   
-  //connect with the credentials we read
+  // connect with the credentials we read
   mongoose.connect("mongodb://" + data.db.username + ":" + data.db.password + "@proximus.modulusmongo.net:27017/Hepawa4z");
  
 });
 
-//book model
+// book model
 var Book 	= require('./Models/book');
+
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -50,9 +52,9 @@ router.use(function(req, res, next) {
 });
 
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// test route to make sure everything is working (accessed at GET http://localhost:8080/libtek)
 router.get('/', function(req, res) {
-	res.json({ message: 'LibTek index!' });	
+	res.json({ message: 'LibTek index!' });
 });
 
 // more routes for our API will happen here
@@ -70,7 +72,7 @@ router.route('/books')
 			if (err)
 				res.send(err);
 
-			res.json({ message: 'Book created!' });
+			res.json({ message: 'Book' + book.name + ' created!' });
 		});		
 	})
 	
@@ -84,10 +86,59 @@ router.route('/books')
 		});
 	});
 
+// on routes that end in /books/:book_id
+// ----------------------------------------------------
+router.route('/books/:book_id')
+
+	// get the book with that id (accessed at GET http://localhost:8080/api/books/:book_id)
+	.get(function(req, res) {
+		Book.findById(req.params.book_id, function(err, book) {
+			if (err)
+				res.send(err);
+			
+			res.json(book);
+		});
+	})
+	
+	// update the book with this id (accessed at PUT http://localhost:8080/api/books/:book_id)
+	.put(function(req, res) {
+
+		// use our book model to find the book we want
+		Book.findById(req.params.book_id, function(err, book) {
+
+			if (err)
+				res.send(err);
+
+			book.name = req.body.name; 	// update the books info
+
+			// save the book
+			book.save(function(err) {
+				if (err)
+					res.send(err);
+
+				res.json({ message: 'Book updated!' });
+			});
+
+		});
+	})
+	
+	// delete the book with this id (accessed at DELETE http://localhost:8080/api/books/:book_id)
+	.delete(function(req, res) {
+		Book.remove({
+			_id: req.params.book_id
+		}, function(err, book) {
+			if (err)
+				res.send(err);
+
+			res.json({ message: 'Book deleted.' });
+		});
+	});
+	
 	
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /libtek
 app.use('/libtek', router);
+
 
 // START THE SERVER
 // =============================================================================
