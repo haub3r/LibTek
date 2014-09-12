@@ -1,5 +1,8 @@
 // LibTek/Models/book.js
 
+// BOOK MODEL
+// =============================================================================
+
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
