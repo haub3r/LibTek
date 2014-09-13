@@ -3,7 +3,7 @@
 
 // dependencies
 var express    = require('express');
-var Book 	= require('./Models/book');
+var Book 	= require('./models/book');
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -104,7 +104,7 @@ module.exports = function(app) {
 		// --------------------------------------------------
 		// route to handle all angular requests
 		app.get('*', function(req, res) {
-			res.sendfile('./views/index.html'); // load our index.html file
+			res.sendfile('./public/index.html'); // load our index.html file
 		});
 		
 	// REGISTER OUR ROUTES -------------------------------

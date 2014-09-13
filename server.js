@@ -17,12 +17,14 @@ var methodOverride = require('method-override');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static('./public')); // set the static files location /public
+
 var port = process.env.PORT || 8080; 		// set our port
 
 // DB connection
 
 // read the username and password from file
-var file = './conf/real/settings.json';
+var file = './conf/settings.json';
 
 fs.readFile(file, 'utf8', function (err, data) {
   if (err) {
