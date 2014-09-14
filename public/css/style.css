@@ -1,0 +1,45 @@
+body {
+	background-color:#E1C39D;
+}
+
+h1 {
+	font-family:"Righteous";
+}
+
+h2 {
+	font-family:"Montserrat";
+}
+
+.col-md-4 {
+	background-color:#E1C39D;
+	/*height:500px;*/
+}
+
+.navbar {
+	background-color:#6F7297;
+	border-color:#6F7297;
+}
+
+.navbar-inverse .navbar-brand {
+	color:#33334C;
+	font-family:"Cabin Condensed";
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color:#33334C;
+	font-family:"Cabin Condensed";
+}
+
+.jumbotron {
+	background-color:#6E9E86;
+}
+
+.navbar-header {
+	background-color:#6F7297;
+}
+
+/*
+.homeContainer {
+	width:
+}
+*/
