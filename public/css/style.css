@@ -1,5 +1,5 @@
 body {
-	background-color:#E1C39D;
+	background-color:#FFDDC1;
 }
 
 h1 {
@@ -11,9 +11,15 @@ h2 {
 }
 
 .col-md-4 {
-	background-color:#E1C39D;
+	background-color:white;
+	min-height:200px;
 	/*height:500px;*/
 }
+
+.container {
+	background-color:#FFF2E8;
+}
+
 
 .navbar {
 	background-color:#6F7297;
@@ -31,7 +37,7 @@ h2 {
 }
 
 .jumbotron {
-	background-color:#6E9E86;
+	background-color:#D9E5CC;
 }
 
 .navbar-header {
