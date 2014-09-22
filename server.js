@@ -11,18 +11,33 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var mongoose   = require('mongoose');
 var methodOverride = require('method-override');
+var passport = require('passport');
 
-// configure app to use bodyParser()
+// book model and controller
+var book = require('./models/book');
+var bookController = require('./controllers/book');
+
+// authorization controller
+var authController = require('./controllers/auth');
+
+// use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static('./public')); // set the static files location /public
+
+// use the passport package in our application
+app.use(passport.initialize());
+
+// set the static files location /public
+app.use(express.static('./public')); 
 
 var port = process.env.PORT || 8080; 		// set our port
 
-// DB connection
 
+
+// DB connection
+// -------------------------------------------------
 // read the username and password from file
 var file = './conf/settings.json';
 
@@ -38,9 +53,6 @@ fs.readFile(file, 'utf8', function (err, data) {
   mongoose.connect("mongodb://" + data.db.username + ":" + data.db.password + "@proximus.modulusmongo.net:27017/Hepawa4z");
  
 });
-
-// book model
-var Book 	= require('./models/book');
 
 
 // route file

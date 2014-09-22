@@ -3,7 +3,13 @@
 
 // dependencies
 var express    = require('express');
-var Book 	= require('./models/book');
+
+var book 	= require('./models/book');
+var user = require('./models/user');
+
+var bookController = require('./controllers/book');
+var userController = require('./controllers/user');
+var authController = require('./controllers/auth');
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -23,89 +29,31 @@ module.exports = function(app) {
 		res.json({ message: 'LibTek index!' });
 	});
 
-	// more routes for our API will happen here
-
+		
+	// Create endpoint handlers for /books
 	router.route('/books')
+	  .post(authController.isAuthenticated, bookController.postBooks)
+	  .get(authController.isAuthenticated, bookController.getBooks);
 
-		// create a book (accessed at POST http://localhost:8080/libtek/books)
-		.post(function(req, res) {
-			
-			var book = new Book(); 		// create a new instance of the Book model
-			book.name = req.body.name;  // set the book name (comes from the request)
-
-			// save the book and check for errors
-			book.save(function(err) {
-				if (err)
-					res.send(err);
-
-				res.json({ message: 'Book ' + book.name + ' created!' });
-			});		
-		})
-		
-		//get all books (accessed at GET http://localhost:8080/libtek/books)
-		.get(function(req, res) {
-			Book.find(function(err, books) {
-				if (err)
-					res.send(err);
-
-				res.json(books);
-			});
-		});
-
-	// on routes that end in /books/:book_id
-	// ----------------------------------------------------
+	// Create endpoint handlers for /books/:book_id
 	router.route('/books/:book_id')
+	  .get(authController.isAuthenticated, bookController.getBook)
+	  //.put(authController.isAuthenticated, bookController.putBook)		//put not working yet
+	  .delete(authController.isAuthenticated, bookController.deleteBook);
 
-		// get the book with that id (accessed at GET http://localhost:8080/api/books/:book_id)
-		.get(function(req, res) {
-			Book.findById(req.params.book_id, function(err, book) {
-				if (err)
-					res.send(err);
-				
-				res.json(book);
-			});
-		})
-		
-		// update the book with this id (accessed at PUT http://localhost:8080/api/books/:book_id)
-		.put(function(req, res) {
+	// Create endpoint handlers for /users
+	router.route('/users')
+	  .post(userController.postUsers)
+	  .get(authController.isAuthenticated, userController.getUsers);
 
-			// use our book model to find the book we want
-			Book.findById(req.params.book_id, function(err, book) {
-
-				if (err)
-					res.send(err);
-
-				book.name = req.body.name; 	// update the books info
-
-				// save the book
-				book.save(function(err) {
-					if (err)
-						res.send(err);
-
-					res.json({ message: 'Book updated!' });
-				});
-
-			});
-		})
-		
-		// delete the book with this id (accessed at DELETE http://localhost:8080/api/books/:book_id)
-		.delete(function(req, res) {
-			Book.remove({
-				_id: req.params.book_id
-			}, function(err, book) {
-				if (err)
-					res.send(err);
-
-				res.json({ message: 'Book deleted.' });
-			});
-		});
 		
 		// frontend routes 
 		// --------------------------------------------------
-		// route to handle all angular requests
+		/* route to handle all angular requests
 		app.get('*', function(req, res) {
 			res.sendfile('./public/index.html'); // load our index.html file
-		});
+		});*/
+	
 		
 	// REGISTER OUR ROUTES -------------------------------
 	// all of our routes will be prefixed with /libtek
