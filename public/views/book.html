@@ -5,3 +5,47 @@
 
 	<p>{{ tagline }}</p>
 </div>
+
+
+<!-- LIST OF BOOKS -->
+<div id="booklist" class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+
+			<!-- LOOP OVER THE BOOKS IN $scope.books -->
+			<div ng-repeat="book in books">
+				{{ book.name }}
+			</div>
+
+		</div>
+</div>
+
+<!-- FORM TO CREATE BOOKS -->
+		<div id="bookform" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<div class="form-group">
+
+						<!-- BIND THIS VALUE TO formData.name IN ANGULAR -->
+						<input type="text" class="form-control input-lg text-center" placeholder="New book here!" ng-model="formData.name">
+					</div>
+
+					<!-- createBook() WILL CREATE NEW BOOKS -->
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="createBook()">Add</button>
+					
+				</form>
+			</div>
+		</div>
+		
+		
+		<!--
+		<div id="bookform2" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<div class="form-group">
+
+					<!-- createBook() WILL CREATE NEW BOOKS 
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="getBooks()">Refresh</button>
+					
+				</form>
+			</div>
+		</div>-->

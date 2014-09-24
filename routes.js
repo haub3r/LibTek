@@ -24,9 +24,9 @@ module.exports = function(app) {
 	});
 
 
-	// test route to make sure everything is working (accessed at GET http://localhost:8080/libtek)
+	// main route
 	router.get('/', function(req, res) {
-		res.json({ message: 'LibTek index!' });
+		res.sendfile('./public/index.html'); // load our index.html file
 	});
 
 		
@@ -45,17 +45,19 @@ module.exports = function(app) {
 	router.route('/users')
 	  .post(userController.postUsers)
 	  .get(authController.isAuthenticated, userController.getUsers);
-
-		
-		// frontend routes 
-		// --------------------------------------------------
-		/* route to handle all angular requests
-		app.get('*', function(req, res) {
-			res.sendfile('./public/index.html'); // load our index.html file
-		});*/
 	
-		
+	
+		// frontend routes 
+	// --------------------------------------------------
+	// route to handle all angular requests
+		router.get('*', function(req, res) {
+			res.sendfile('./public/index.html'); // load our index.html file
+		});
+
+	
 	// REGISTER OUR ROUTES -------------------------------
 	// all of our routes will be prefixed with /libtek
 	app.use('/libtek', router);
+	
+	
 };

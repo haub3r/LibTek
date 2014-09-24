@@ -16,7 +16,7 @@ exports.postUsers = function(req, res) {
   });
 };
 
-// Create endpoint /api/users for GET
+// Create endpoint /libtek/users for GET
 exports.getUsers = function(req, res) {
   User.find(function(err, users) {
     if (err)

@@ -44,6 +44,14 @@ h2 {
 	background-color:#6F7297;
 }
 
+#booklist {
+	background-color:white;
+	min-height:100px;
+	color:#33334C;
+	font-family:"Arial";
+	margin-bottom:100px;
+}
+
 /*
 .homeContainer {
 	width:

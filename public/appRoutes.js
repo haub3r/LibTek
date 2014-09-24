@@ -9,6 +9,11 @@
 			templateUrl: 'views/home.html',
 			controller: 'MainController'
 		})
+		
+		.when('/libtek/users', {
+			templateUrl: 'views/login.html',
+			controller: 'UserController'
+		})
 
 		// books page that will use the BookController
 		.when('/libtek/books', {
