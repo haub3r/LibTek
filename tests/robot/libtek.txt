@@ -1,0 +1,23 @@
+*** Settings ***
+Documentation  This resource file contains specific keywords for running
+...            LibTek tests
+
+*** Variables ***
+${libtek_url}  localhost:8080/libtek
+${book_name}  test
+
+*** Keywords ***
+
+Open Browser To LibTek Page
+    Open Browser  ${libtek_url}  ${browser}   ff_profile_dir=${ff_profile}
+    Maximize Browser Window
+    Set Selenium Speed  ${sel_speed}
+    Title Should Be   LibTek
+
+Click Books Link
+    Click Link   Books
+
+Add Book
+    Input Text    bookname    ${book_name}
+    Click Button   add
+	Page Should Contain   ${book_name}

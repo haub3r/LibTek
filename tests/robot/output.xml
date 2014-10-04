@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20141004 15:20:17.362" generator="Robot 2.8.5 (Python 2.7 on win32)">
+<suite source="C:\Users\Iiro\LibTek\tests\robot\libtekTest.txt" id="s1" name="libtekTest">
+<test id="s1-t1" name="Go To LibTek Page">
+<kw type="kw" name="libtek.Open Browser To LibTek Page">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${libtek_url}</arg>
+<arg>${browser}</arg>
+<arg>ff_profile_dir=${ff_profile}</arg>
+</arguments>
+<msg timestamp="20141004 15:20:17.507" level="INFO">Opening browser 'firefox' to base url 'localhost:8080/libtek'</msg>
+<status status="PASS" endtime="20141004 15:20:21.766" starttime="20141004 15:20:17.507"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Maximize Browser Window">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20141004 15:20:21.785" starttime="20141004 15:20:21.766"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Speed">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${sel_speed}</arg>
+</arguments>
+<status status="PASS" endtime="20141004 15:20:21.785" starttime="20141004 15:20:21.785"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>LibTek</arg>
+</arguments>
+<msg timestamp="20141004 15:20:22.292" level="INFO">Page title is 'LibTek'.</msg>
+<status status="PASS" endtime="20141004 15:20:22.292" starttime="20141004 15:20:21.786"></status>
+</kw>
+<status status="PASS" endtime="20141004 15:20:22.292" starttime="20141004 15:20:17.506"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20141004 15:20:22.293" critical="yes" starttime="20141004 15:20:17.506"></status>
+</test>
+<test id="s1-t2" name="Go To Books Page">
+<kw type="kw" name="libtek.Click Books Link">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Click Link">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>Books</arg>
+</arguments>
+<msg timestamp="20141004 15:20:22.295" level="INFO">Clicking link 'Books'.</msg>
+<status status="PASS" endtime="20141004 15:20:24.072" starttime="20141004 15:20:22.295"></status>
+</kw>
+<status status="PASS" endtime="20141004 15:20:24.072" starttime="20141004 15:20:22.295"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20141004 15:20:24.073" critical="yes" starttime="20141004 15:20:22.294"></status>
+</test>
+<test id="s1-t3" name="Add A Book [Documentation] Add a book to the user &quot;test&quot;.">
+<kw type="kw" name="libtek.Add Book">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>bookname</arg>
+<arg>${book_name}</arg>
+</arguments>
+<msg timestamp="20141004 15:20:24.075" level="INFO">Typing text 'test' into text field 'bookname'</msg>
+<status status="PASS" endtime="20141004 15:20:25.627" starttime="20141004 15:20:24.075"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>add</arg>
+</arguments>
+<msg timestamp="20141004 15:20:25.627" level="INFO">Clicking button 'add'.</msg>
+<status status="PASS" endtime="20141004 15:20:27.666" starttime="20141004 15:20:25.627"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Contain Element">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
+<arguments>
+<arg>span ng-bind</arg>
+<arg>${book_name}</arg>
+</arguments>
+<msg timestamp="20141004 15:20:28.709" level="INFO">&lt;!-- index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en"&gt;&lt;head&gt;&lt;style type="text/css"&gt;@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}&lt;/style&gt;
+		&lt;meta charset="UTF-8" /&gt;
+		&lt;base href="/libtek" /&gt;
+
+		&lt;title&gt;LibTek&lt;/title&gt;
+
+		&lt;!-- CSS --&gt;
+		&lt;link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" /&gt;
+		&lt;link href="/css/style.css" rel="stylesheet" /&gt; &lt;!-- custom style to bootstrap --&gt;
+		
+		&lt;link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico" /&gt; &lt;!-- Google Fonts --&gt;
+		&lt;link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Righteous" /&gt;
+		&lt;link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:700" /&gt;
+		&lt;link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin+Condensed:700" /&gt;
+
+		&lt;!-- JS --&gt;
+		&lt;script src="/libs/angular/angular.min.js"&gt;&lt;/script&gt;
+		&lt;script src="/libs/angular-route/angular-route.min.js"&gt;&lt;/script&gt;
+
+		&lt;!-- ANGULAR CUSTOM --&gt;
+		&lt;script src="/controllers/MainCtrl.js"&gt;&lt;/script&gt;
+		&lt;script src="/controllers/BookCtrl.js"&gt;&lt;/script&gt;
+		&lt;script src="/controllers/UserCtrl.js"&gt;&lt;/script&gt;
+		&lt;!--&lt;script src="/services/BookService.js"&gt;&lt;/script&gt;--&gt;
+		&lt;script src="/appRoutes.js"&gt;&lt;/script&gt;
+		&lt;script src="/app.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body ng-controller="MainController" ng-app="sampleApp" class="ng-scope"&gt;
+		&lt;div class="container"&gt;
+
+			&lt;!-- HEADER --&gt;
+			&lt;nav class="navbar navbar-inverse"&gt;
+				&lt;div class="navbar-header"&gt;
+					&lt;a href="/libtek" class="navbar-brand"&gt;LibTek: A MEAN Stack App&lt;/a&gt;
+				&lt;/div&gt;
+
+				&lt;!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE --&gt;
+				&lt;ul class="nav navbar-nav"&gt;
+					&lt;li&gt;&lt;a href="/libtek/books"&gt;Books&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+
+			&lt;!-- ANGULAR DYNAMIC CONTENT --&gt;
+			&lt;!-- ngView:  --&gt;&lt;div ng-view="" class="ng-scope"&gt;&lt;!-- views/book.html --&gt;
+
+&lt;div class="jumbotron text-center ng-scope"&gt;
+	&lt;h1&gt;Books&lt;/h1&gt;
+
+	&lt;p class="ng-binding"&gt;Your books below:&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;!-- LIST OF BOOKS --&gt;
+&lt;div class="row ng-scope" id="booklist"&gt;
+		&lt;div class="col-sm-4 col-sm-offset-4"&gt;
+
+			&lt;!-- LOOP OVER THE BOOKS IN $scope.books --&gt;
+			&lt;!-- ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;New Book&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;asdf&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;asdf&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;ntest&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;&lt;div ng-repeat="book in books" class="ng-scope"&gt;
+				&lt;span ng-bind="book.name" class="ng-binding"&gt;test&lt;/span&gt;
+			&lt;/div&gt;&lt;!-- end ngRepeat: book in books --&gt;
+
+		&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- FORM TO CREATE BOOKS --&gt;
+		&lt;div class="row ng-scope" id="bookform"&gt;
+			&lt;div class="col-sm-8 col-sm-offset-2 text-center"&gt;
+				&lt;form class="ng-valid ng-dirty"&gt;
+					&lt;div class="form-group"&gt;
+
+						&lt;!-- BIND THIS VALUE TO formData.name IN ANGULAR --&gt;
+						&lt;input type="text" ng-model="formData.name" placeholder="New book here!" class="form-control input-lg text-center ng-valid ng-dirty" id="bookname" /&gt;
+					&lt;/div&gt;
+
+					&lt;!-- createBook() WILL CREATE NEW BOOKS --&gt;
+					&lt;button ng-click="createBook()" class="btn btn-primary btn-lg" type="submit" id="add"&gt;Add&lt;/button&gt;
+					
+				&lt;/form&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		
+		
+		&lt;!--
+		&lt;div id="bookform2" class="row"&gt;
+			&lt;div class="col-sm-8 col-sm-offset-2 text-center"&gt;
+				&lt;form&gt;
+					&lt;div class="form-group"&gt;
+
+					&lt;!-- createBook() WILL CREATE NEW BOOKS 
+					&lt;button type="submit" class="btn btn-primary btn-lg" ng-click="getBooks()"&gt;Refresh&lt;/button&gt;
+					
+				&lt;/form&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;--&gt;
+&lt;/div&gt;
+
+		&lt;/div&gt;
+	
+
+&lt;/body&gt;&lt;/html&gt;</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20141004 15:20:29.316" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20141004 15:20:29.316" starttime="20141004 15:20:28.709"></status>
+</kw>
+<msg timestamp="20141004 15:20:29.318" level="FAIL">test</msg>
+<status status="FAIL" endtime="20141004 15:20:29.318" starttime="20141004 15:20:27.666"></status>
+</kw>
+<status status="FAIL" endtime="20141004 15:20:29.318" starttime="20141004 15:20:24.075"></status>
+</kw>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20141004 15:20:29.882" starttime="20141004 15:20:29.319"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20141004 15:20:29.883" critical="yes" starttime="20141004 15:20:24.074">test</status>
+</test>
+<doc>Test to showcase LibTek functionality.</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20141004 15:20:29.884" starttime="20141004 15:20:17.363"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="2">Critical Tests</stat>
+<stat fail="1" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" pass="2" id="s1" name="libtekTest">libtekTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

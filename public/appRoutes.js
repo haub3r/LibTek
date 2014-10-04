@@ -4,7 +4,6 @@
 	$routeProvider
 
 		// home page
-		
 		.when('/libtek', {
 			templateUrl: 'views/home.html',
 			controller: 'MainController'

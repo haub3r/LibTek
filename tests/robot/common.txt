@@ -1,0 +1,10 @@
+*** Settings ***
+Documentation  This resource file contains common and global variables.
+Library  Selenium2Library
+
+*** Variables ***
+# Choose browser and set Selenium speed.
+${browser}  firefox
+${ff_profile}  C:\\Users\\Iiro\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\iccy93ti.Robot
+# ff_profile\\iccy93ti.Robot
+${sel_speed}  0.5

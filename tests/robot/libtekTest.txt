@@ -1,0 +1,18 @@
+*** Settings ***
+Documentation  Test to showcase LibTek functionality.
+
+Resource  common.txt
+Resource  libtek.txt
+
+*** Test Cases ***
+
+Go To LibTek Page
+    Open Browser to LibTek Page
+
+Go To Books Page
+    Click Books Link
+
+Add A Book [Documentation] Add a book to the user "test".
+    Add Book
+
+    [Teardown]  Close Browser
