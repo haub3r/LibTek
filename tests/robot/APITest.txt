@@ -1,0 +1,18 @@
+*** Settings ***
+Documentation  Test for Libtek API functionality.
+
+Resource  common.txt
+Resource  libtek.txt
+
+*** Test Cases ***
+
+Setup access to API
+    Create Context
+
+Test /books with http verbs [Documentation] Logging in POST enabled for clarity. Because of RESTfullness of API we have to send auth every time we want something done.
+    Set Credentials
+	Issue GET to /libtek/books
+	Set Credentials
+    Issue POST to /libtek/books
+
+    [Teardown]  Close Browser

@@ -16,8 +16,28 @@ Open Browser To LibTek Page
 
 Click Books Link
     Click Link   Books
+	Page Should Contain Element   id=h1books
 
 Add Book
-    Input Text    bookname    ${book_name}
+    Input Text   bookname    ${book_name}
     Click Button   add
-	Page Should Contain   ${book_name}
+    Page Should Contain   ${book_name}
+
+Click LibTek Link
+    Click Link   /libtek
+    Page Should Contain Element   id=h1home
+
+Create Context 
+    Create Http Context   localhost:8080
+	
+Set Credentials
+    Set Basic Auth   test   test
+
+Issue GET to /libtek/books
+    GET   /libtek/books
+	Response Status Code Should Equal   200 OK
+	
+Issue POST to /libtek/books
+    Set Request Body   name=APITest
+	POST   /libtek/books
+	Log Response Body

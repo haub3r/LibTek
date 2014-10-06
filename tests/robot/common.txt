@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation  This resource file contains common and global variables.
 Library  Selenium2Library
+Library  HttpLibrary.HTTP
 
 *** Variables ***
 # Choose browser and set Selenium speed.

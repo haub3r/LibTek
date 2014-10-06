@@ -6,7 +6,7 @@ Resource  libtek.txt
 
 *** Test Cases ***
 
-Go To LibTek Page
+Go To LibTek Index
     Open Browser to LibTek Page
 
 Go To Books Page
@@ -14,5 +14,8 @@ Go To Books Page
 
 Add A Book [Documentation] Add a book to the user "test".
     Add Book
+
+Go back to LibTek Index
+    Click LibTek Link
 
     [Teardown]  Close Browser
