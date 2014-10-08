@@ -8,7 +8,7 @@ var http   = require("http");
 var server = require("../../../server.js");
 
 describe('UnitTests', function() {
-	var url = 'http://localhost:8080';
+	var url = 'http://localhost:8080/libtek';
 
 	it("should return a 200 response", function (done) {
 
