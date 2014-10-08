@@ -1,25 +1,26 @@
 *** Settings ***
-Documentation  This resource file contains specific keywords for running
-...            LibTek tests
+Documentation  This resource file contains specific keywords for running LibTek tests
 
 *** Variables ***
-${libtek_url}  localhost:8080/libtek
-${book_name}  test
+${libtek_host}   localhost:8080
+${libtek_url}   localhost:8080/libtek
+${book_name}   test
+${book_id}   5432dbb7691469681a00000b
 
 *** Keywords ***
 
 Open Browser To LibTek Page
-    Open Browser  ${libtek_url}  ${browser}   ff_profile_dir=${ff_profile}
+    Open Browser   ${libtek_url}  ${browser}   ff_profile_dir=${ff_profile}
     Maximize Browser Window
-    Set Selenium Speed  ${sel_speed}
+    Set Selenium Speed   ${sel_speed}
     Title Should Be   LibTek
 
 Click Books Link
     Click Link   Books
-	Page Should Contain Element   id=h1books
+    Page Should Contain Element   id=h1books
 
 Add Book
-    Input Text   bookname    ${book_name}
+    Input Text   bookname   ${book_name}
     Click Button   add
     Page Should Contain   ${book_name}
 
@@ -28,16 +29,41 @@ Click LibTek Link
     Page Should Contain Element   id=h1home
 
 Create Context 
-    Create Http Context   localhost:8080
+    Create Http Context   ${libtek_host}
 	
 Set Credentials
     Set Basic Auth   test   test
 
+Set Credentials (Users Test)
+    Set Basic Auth   APITest   APITest
+
 Issue GET to /libtek/books
     GET   /libtek/books
-	Response Status Code Should Equal   200 OK
+    Response Status Code Should Equal   200 OK
 	
 Issue POST to /libtek/books
     Set Request Body   name=APITest
-	POST   /libtek/books
-	Log Response Body
+    POST   /libtek/books
+    Log Response Body
+
+Issue GET to /libtek/books/:book_id
+    GET   /libtek/books/${book_id}
+    Response Status Code Should Equal   200 OK
+
+Issue DELETE to /libtek/books/:book_id
+    DELETE   /libtek/books/${book_id}
+    Response Status Code Should Equal   200 OK
+    Log Response Body
+#    Set Credentials
+#    Set Request Body   id=${book_id}&name=test
+#    POST   /libtek/books
+#    Response Status Code Should Equal   200 OK
+
+Issue GET to /libtek/users
+    GET   /libtek/users
+    Response Status Code Should Equal   200 OK
+	
+Issue POST to /libtek/users
+    Set Request Body   username=APITest&password=APITest
+    POST   /libtek/users
+    Log Response Body

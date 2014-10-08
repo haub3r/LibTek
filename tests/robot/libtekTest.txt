@@ -15,7 +15,7 @@ Go To Books Page
 Add A Book [Documentation] Add a book to the user "test".
     Add Book
 
-Go back to LibTek Index
+Go Back To LibTek Index
     Click LibTek Link
 
     [Teardown]  Close Browser

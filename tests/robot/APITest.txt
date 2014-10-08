@@ -9,10 +9,21 @@ Resource  libtek.txt
 Setup access to API
     Create Context
 
-Test /books with http verbs [Documentation] Logging in POST enabled for clarity. Because of RESTfullness of API we have to send auth every time we want something done.
+Test /books with http verbs [Documentation] Logging in POST and DELETE enabled for clarity. Because of RESTfulness of API we have to send auth every time we want something done.
     Set Credentials
-	Issue GET to /libtek/books
-	Set Credentials
+    Issue GET to /libtek/books
+    Set Credentials
     Issue POST to /libtek/books
+	
+Test /books/:book_id with http verbs
+    Set Credentials
+    Issue GET to /libtek/books/:book_id
+    Set Credentials
+    Issue DELETE to /libtek/books/:book_id
+	
+Test /users with http verbs
+    Issue POST to /libtek/users
+    Set Credentials (Users Test)
+    Issue GET to /libtek/users
 
     [Teardown]  Close Browser
