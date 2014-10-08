@@ -1,0 +1,1 @@
+Unit tests with Mocha. You have to run "mocha /tests/mocha" from command line at LibTek root folder.

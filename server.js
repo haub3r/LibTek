@@ -5,8 +5,9 @@
 // =============================================================================
 
 // call the packages we need
-var express    = require('express'); 		// call express
-var app        = express(); 				// define our app using express
+var express = require('express'); 		// call express
+var app = express(); 				            // define our app using express
+
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var mongoose   = require('mongoose');
@@ -65,4 +66,4 @@ app.listen(port);
 console.log('Magic happens on port ' + port);
 
 // expose app
-exports = module.exports = app;
+module.exports = app;

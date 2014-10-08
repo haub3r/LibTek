@@ -1,273 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20141008 14:58:42.097" generator="Robot 2.8.5 (Python 2.7 on win32)">
-<suite source="C:\Users\Iiro\LibTek\tests\robot\APITest.txt" id="s1" name="APITest">
-<test id="s1-t1" name="Setup access to API">
-<kw type="kw" name="libtek.Create Context">
+<robot generated="20141008 22:09:37.646" generator="Robot 2.8.5 (Python 2.7 on win32)">
+<suite source="C:\Users\Iiro\LibTek\tests\robot\libtekTest.txt" id="s1" name="libtekTest">
+<test id="s1-t1" name="Go To LibTek Index">
+<kw type="kw" name="libtek.Open Browser To LibTek Page">
 <doc></doc>
 <arguments>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Create Http Context">
-<doc>Sets the HTTP host to use for future requests. You must call this</doc>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
 <arguments>
-<arg>${libtek_host}</arg>
+<arg>${libtek_url}</arg>
+<arg>${browser}</arg>
+<arg>ff_profile_dir=${ff_profile}</arg>
 </arguments>
-<msg timestamp="20141008 14:58:42.333" level="INFO">Host for next HTTP request set to 'localhost:8080'</msg>
-<msg timestamp="20141008 14:58:42.333" level="INFO">Scheme for next HTTP request set to 'http'</msg>
-<status status="PASS" endtime="20141008 14:58:42.333" starttime="20141008 14:58:42.333"></status>
+<msg timestamp="20141008 22:09:37.875" level="INFO">Opening browser 'firefox' to base url 'localhost:8080/libtek'</msg>
+<status status="PASS" endtime="20141008 22:09:46.101" starttime="20141008 22:09:37.875"></status>
 </kw>
-<status status="PASS" endtime="20141008 14:58:42.334" starttime="20141008 14:58:42.333"></status>
-</kw>
-<doc></doc>
-<tags>
-</tags>
-<status status="PASS" endtime="20141008 14:58:42.334" critical="yes" starttime="20141008 14:58:42.332"></status>
-</test>
-<test id="s1-t2" name="Test /books with http verbs [Documentation] Logging in POST and DELETE enabled for clarity. Because of RESTfulness of API we have to send auth every time we want something done.">
-<kw type="kw" name="libtek.Set Credentials">
-<doc></doc>
+<kw type="kw" name="Selenium2Library.Maximize Browser Window">
+<doc>Maximizes current browser window.</doc>
 <arguments>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Set Basic Auth">
-<doc>Set HTTP Basic Auth for next request.</doc>
-<arguments>
-<arg>test</arg>
-<arg>test</arg>
-</arguments>
-<msg timestamp="20141008 14:58:42.337" level="INFO">Set basic auth to "test:test"</msg>
-<msg timestamp="20141008 14:58:42.337" level="INFO">Set request header "Authorization" to "Basic dGVzdDp0ZXN0"</msg>
-<status status="PASS" endtime="20141008 14:58:42.337" starttime="20141008 14:58:42.336"></status>
+<status status="PASS" endtime="20141008 22:09:46.123" starttime="20141008 22:09:46.101"></status>
 </kw>
-<status status="PASS" endtime="20141008 14:58:42.337" starttime="20141008 14:58:42.336"></status>
-</kw>
-<kw type="kw" name="libtek.Issue GET to /libtek/books">
-<doc></doc>
+<kw type="kw" name="Selenium2Library.Set Selenium Speed">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
 <arguments>
+<arg>${sel_speed}</arg>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.GET">
-<doc>Issues a HTTP GET request.</doc>
-<arguments>
-<arg>/libtek/books</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:43.615" starttime="20141008 14:58:42.337"></status>
+<status status="PASS" endtime="20141008 22:09:46.124" starttime="20141008 22:09:46.123"></status>
 </kw>
-<kw type="kw" name="HttpLibrary.HTTP.Response Status Code Should Equal">
-<doc>Fails if the response status code of the previous request was not the</doc>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
 <arguments>
-<arg>200 OK</arg>
+<arg>LibTek</arg>
 </arguments>
-<status status="PASS" endtime="20141008 14:58:43.615" starttime="20141008 14:58:43.615"></status>
+<msg timestamp="20141008 22:09:46.648" level="INFO">Page title is 'LibTek'.</msg>
+<status status="PASS" endtime="20141008 22:09:46.648" starttime="20141008 22:09:46.124"></status>
 </kw>
-<status status="PASS" endtime="20141008 14:58:43.615" starttime="20141008 14:58:42.337"></status>
-</kw>
-<kw type="kw" name="libtek.Set Credentials">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Set Basic Auth">
-<doc>Set HTTP Basic Auth for next request.</doc>
-<arguments>
-<arg>test</arg>
-<arg>test</arg>
-</arguments>
-<msg timestamp="20141008 14:58:43.617" level="INFO">Set basic auth to "test:test"</msg>
-<msg timestamp="20141008 14:58:43.617" level="INFO">Set request header "Authorization" to "Basic dGVzdDp0ZXN0"</msg>
-<status status="PASS" endtime="20141008 14:58:43.617" starttime="20141008 14:58:43.617"></status>
-</kw>
-<status status="PASS" endtime="20141008 14:58:43.617" starttime="20141008 14:58:43.616"></status>
-</kw>
-<kw type="kw" name="libtek.Issue POST to /libtek/books">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Set Request Body">
-<doc>Set the request body for the next HTTP request.</doc>
-<arguments>
-<arg>name=APITest</arg>
-</arguments>
-<msg timestamp="20141008 14:58:43.618" level="INFO">Request body set to "name=APITest".</msg>
-<status status="PASS" endtime="20141008 14:58:43.618" starttime="20141008 14:58:43.618"></status>
-</kw>
-<kw type="kw" name="HttpLibrary.HTTP.POST">
-<doc>Issues a HTTP POST request.</doc>
-<arguments>
-<arg>/libtek/books</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:43.881" starttime="20141008 14:58:43.618"></status>
-</kw>
-<kw type="kw" name="HttpLibrary.HTTP.Log Response Body">
-<doc>Logs the response body.</doc>
-<arguments>
-</arguments>
-<msg timestamp="20141008 14:58:43.882" level="INFO">Response body:</msg>
-<msg timestamp="20141008 14:58:43.882" level="INFO">{"message":"Book added to the library!","data":{"__v":0,"userId":"542bf380ccd433fc15000002","name":"APITest","_id":"543526f3a946715819000007"}}</msg>
-<status status="PASS" endtime="20141008 14:58:43.882" starttime="20141008 14:58:43.882"></status>
-</kw>
-<status status="PASS" endtime="20141008 14:58:43.882" starttime="20141008 14:58:43.617"></status>
+<status status="PASS" endtime="20141008 22:09:46.648" starttime="20141008 22:09:37.875"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20141008 14:58:43.883" critical="yes" starttime="20141008 14:58:42.335"></status>
+<status status="PASS" endtime="20141008 22:09:46.649" critical="yes" starttime="20141008 22:09:37.874"></status>
 </test>
-<test id="s1-t3" name="Test/books/:book_id with http verbs">
-<kw type="kw" name="libtek.Set Credentials">
+<test id="s1-t2" name="Go To Books Page">
+<kw type="kw" name="libtek.Click Books Link">
 <doc></doc>
 <arguments>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Set Basic Auth">
-<doc>Set HTTP Basic Auth for next request.</doc>
+<kw type="kw" name="Selenium2Library.Click Link">
+<doc>Clicks a link identified by locator.</doc>
 <arguments>
-<arg>test</arg>
-<arg>test</arg>
+<arg>Books</arg>
 </arguments>
-<msg timestamp="20141008 14:58:43.886" level="INFO">Set basic auth to "test:test"</msg>
-<msg timestamp="20141008 14:58:43.886" level="INFO">Set request header "Authorization" to "Basic dGVzdDp0ZXN0"</msg>
-<status status="PASS" endtime="20141008 14:58:43.886" starttime="20141008 14:58:43.886"></status>
+<msg timestamp="20141008 22:09:46.651" level="INFO">Clicking link 'Books'.</msg>
+<status status="PASS" endtime="20141008 22:09:48.213" starttime="20141008 22:09:46.650"></status>
 </kw>
-<status status="PASS" endtime="20141008 14:58:43.886" starttime="20141008 14:58:43.885"></status>
-</kw>
-<kw type="kw" name="libtek.Issue GET to /libtek/books/:book_id">
-<doc></doc>
+<kw type="kw" name="Selenium2Library.Page Should Contain Element">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
 <arguments>
+<arg>id=h1books</arg>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.GET">
-<doc>Issues a HTTP GET request.</doc>
-<arguments>
-<arg>/libtek/books/${book_id}</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:44.150" starttime="20141008 14:58:43.886"></status>
+<msg timestamp="20141008 22:09:48.719" level="INFO">Current page contains element 'id=h1books'.</msg>
+<status status="PASS" endtime="20141008 22:09:48.719" starttime="20141008 22:09:48.213"></status>
 </kw>
-<kw type="kw" name="HttpLibrary.HTTP.Response Status Code Should Equal">
-<doc>Fails if the response status code of the previous request was not the</doc>
-<arguments>
-<arg>200 OK</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:44.150" starttime="20141008 14:58:44.150"></status>
-</kw>
-<status status="PASS" endtime="20141008 14:58:44.150" starttime="20141008 14:58:43.886"></status>
-</kw>
-<kw type="kw" name="libtek.Set Credentials">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Set Basic Auth">
-<doc>Set HTTP Basic Auth for next request.</doc>
-<arguments>
-<arg>test</arg>
-<arg>test</arg>
-</arguments>
-<msg timestamp="20141008 14:58:44.151" level="INFO">Set basic auth to "test:test"</msg>
-<msg timestamp="20141008 14:58:44.151" level="INFO">Set request header "Authorization" to "Basic dGVzdDp0ZXN0"</msg>
-<status status="PASS" endtime="20141008 14:58:44.151" starttime="20141008 14:58:44.151"></status>
-</kw>
-<status status="PASS" endtime="20141008 14:58:44.151" starttime="20141008 14:58:44.151"></status>
-</kw>
-<kw type="kw" name="libtek.Issue DELETE to /libtek/books/:book_id">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="HttpLibrary.HTTP.DELETE">
-<doc>Issues a HTTP DELETE request.</doc>
-<arguments>
-<arg>/libtek/books/${book_id}</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:44.416" starttime="20141008 14:58:44.152"></status>
-</kw>
-<kw type="kw" name="HttpLibrary.HTTP.Response Status Code Should Equal">
-<doc>Fails if the response status code of the previous request was not the</doc>
-<arguments>
-<arg>200 OK</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:44.416" starttime="20141008 14:58:44.416"></status>
-</kw>
-<status status="PASS" endtime="20141008 14:58:44.416" starttime="20141008 14:58:44.152"></status>
+<status status="PASS" endtime="20141008 22:09:48.719" starttime="20141008 22:09:46.650"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20141008 14:58:44.417" critical="yes" starttime="20141008 14:58:43.884"></status>
+<status status="PASS" endtime="20141008 22:09:48.720" critical="yes" starttime="20141008 22:09:46.650"></status>
 </test>
-<test id="s1-t4" name="Test /users with http verbs">
-<kw type="kw" name="libtek.Issue POST to /libtek/users">
+<test id="s1-t3" name="Add A Book [Documentation] Add a book to the user &quot;test&quot;.">
+<kw type="kw" name="libtek.Add Book">
 <doc></doc>
 <arguments>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Set Request Body">
-<doc>Set the request body for the next HTTP request.</doc>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
-<arg>username=APITest&amp;password=APITest</arg>
+<arg>bookname</arg>
+<arg>${book_name}</arg>
 </arguments>
-<msg timestamp="20141008 14:58:44.421" level="INFO">Request body set to "username=APITest&amp;password=APITest".</msg>
-<status status="PASS" endtime="20141008 14:58:44.421" starttime="20141008 14:58:44.420"></status>
+<msg timestamp="20141008 22:09:48.722" level="INFO">Typing text 'test' into text field 'bookname'</msg>
+<status status="PASS" endtime="20141008 22:09:50.298" starttime="20141008 22:09:48.722"></status>
 </kw>
-<kw type="kw" name="HttpLibrary.HTTP.POST">
-<doc>Issues a HTTP POST request.</doc>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
 <arguments>
-<arg>/libtek/users</arg>
+<arg>add</arg>
 </arguments>
-<status status="PASS" endtime="20141008 14:58:44.558" starttime="20141008 14:58:44.421"></status>
+<msg timestamp="20141008 22:09:50.298" level="INFO">Clicking button 'add'.</msg>
+<status status="PASS" endtime="20141008 22:09:52.342" starttime="20141008 22:09:50.298"></status>
 </kw>
-<kw type="kw" name="HttpLibrary.HTTP.Log Response Body">
-<doc>Logs the response body.</doc>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
 <arguments>
+<arg>${book_name}</arg>
 </arguments>
-<msg timestamp="20141008 14:58:44.558" level="INFO">Response body:</msg>
-<msg timestamp="20141008 14:58:44.558" level="INFO">{"name":"MongoError","lastOp":"6067799091344048129","connectionId":5410369,"err":"insertDocument :: caused by :: 11000 E11000 duplicate key error index: Hepawa4z.users.$username_1  dup key: { : \"APITest\" }","code":11000,"n":0,"ok":1}</msg>
-<status status="PASS" endtime="20141008 14:58:44.558" starttime="20141008 14:58:44.558"></status>
+<msg timestamp="20141008 22:09:53.355" level="INFO">Current page contains text 'test'.</msg>
+<status status="PASS" endtime="20141008 22:09:53.355" starttime="20141008 22:09:52.342"></status>
 </kw>
-<status status="PASS" endtime="20141008 14:58:44.558" starttime="20141008 14:58:44.420"></status>
+<status status="PASS" endtime="20141008 22:09:53.355" starttime="20141008 22:09:48.721"></status>
 </kw>
-<kw type="kw" name="libtek.Set Credentials (Users Test)">
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20141008 22:09:53.356" critical="yes" starttime="20141008 22:09:48.721"></status>
+</test>
+<test id="s1-t4" name="Go Back To LibTek Index">
+<kw type="kw" name="libtek.Click LibTek Link">
 <doc></doc>
 <arguments>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.Set Basic Auth">
-<doc>Set HTTP Basic Auth for next request.</doc>
+<kw type="kw" name="Selenium2Library.Click Link">
+<doc>Clicks a link identified by locator.</doc>
 <arguments>
-<arg>APITest</arg>
-<arg>APITest</arg>
+<arg>/libtek</arg>
 </arguments>
-<msg timestamp="20141008 14:58:44.560" level="INFO">Set basic auth to "APITest:APITest"</msg>
-<msg timestamp="20141008 14:58:44.560" level="INFO">Set request header "Authorization" to "Basic QVBJVGVzdDpBUElUZXN0"</msg>
-<status status="PASS" endtime="20141008 14:58:44.560" starttime="20141008 14:58:44.559"></status>
+<msg timestamp="20141008 22:09:53.358" level="INFO">Clicking link '/libtek'.</msg>
+<status status="PASS" endtime="20141008 22:09:54.917" starttime="20141008 22:09:53.358"></status>
 </kw>
-<status status="PASS" endtime="20141008 14:58:44.560" starttime="20141008 14:58:44.559"></status>
-</kw>
-<kw type="kw" name="libtek.Issue GET to /libtek/users">
-<doc></doc>
+<kw type="kw" name="Selenium2Library.Page Should Contain Element">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
 <arguments>
+<arg>id=h1home</arg>
 </arguments>
-<kw type="kw" name="HttpLibrary.HTTP.GET">
-<doc>Issues a HTTP GET request.</doc>
-<arguments>
-<arg>/libtek/users</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:44.824" starttime="20141008 14:58:44.561"></status>
+<msg timestamp="20141008 22:09:55.422" level="INFO">Current page contains element 'id=h1home'.</msg>
+<status status="PASS" endtime="20141008 22:09:55.422" starttime="20141008 22:09:54.917"></status>
 </kw>
-<kw type="kw" name="HttpLibrary.HTTP.Response Status Code Should Equal">
-<doc>Fails if the response status code of the previous request was not the</doc>
-<arguments>
-<arg>200 OK</arg>
-</arguments>
-<status status="PASS" endtime="20141008 14:58:44.824" starttime="20141008 14:58:44.824"></status>
-</kw>
-<status status="PASS" endtime="20141008 14:58:44.825" starttime="20141008 14:58:44.560"></status>
+<status status="PASS" endtime="20141008 22:09:55.422" starttime="20141008 22:09:53.357"></status>
 </kw>
 <kw type="teardown" name="Selenium2Library.Close Browser">
 <doc>Closes the current browser.</doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20141008 14:58:44.826" starttime="20141008 14:58:44.825"></status>
+<status status="PASS" endtime="20141008 22:09:56.072" starttime="20141008 22:09:55.423"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20141008 14:58:44.826" critical="yes" starttime="20141008 14:58:44.419"></status>
+<status status="PASS" endtime="20141008 22:09:56.073" critical="yes" starttime="20141008 22:09:53.357"></status>
 </test>
-<doc>Test for Libtek API functionality.</doc>
+<doc>Test to showcase LibTek functionality.</doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20141008 14:58:44.827" starttime="20141008 14:58:42.098"></status>
+<status status="PASS" endtime="20141008 22:09:56.074" starttime="20141008 22:09:37.646"></status>
 </suite>
 <statistics>
 <total>
@@ -277,7 +156,7 @@
 <tag>
 </tag>
 <suite>
-<stat fail="0" pass="4" id="s1" name="APITest">APITest</stat>
+<stat fail="0" pass="4" id="s1" name="libtekTest">libtekTest</stat>
 </suite>
 </statistics>
 <errors>
