@@ -45,6 +45,7 @@ Issue POST to /libtek/books
     Set Request Body   name=APITest
     POST   /libtek/books
     Log Response Body
+    Response Status Code Should Equal   200 OK
 
 Issue GET to /libtek/books/:book_id
     GET   /libtek/books/${book_id}
@@ -67,3 +68,4 @@ Issue POST to /libtek/users
     Set Request Body   username=APITest&password=APITest
     POST   /libtek/users
     Log Response Body
+    Response Status Code Should Equal   200 OK
