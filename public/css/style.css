@@ -52,6 +52,16 @@ h2 {
 	margin-bottom:100px;
 }
 
+.bookRow {
+	font-family:"Calibri";
+	font-size:20px;
+	margin-left:100px;
+}
+
+#add {
+	margin-bottom:80px;
+}
+
 /*
 .homeContainer {
 	width:

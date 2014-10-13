@@ -10,12 +10,11 @@
 <!-- LIST OF BOOKS -->
 <div id="booklist" class="row">
 		<div class="col-sm-4 col-sm-offset-4">
-
-			<!-- LOOP OVER THE BOOKS IN $scope.books -->
-			<div ng-repeat="book in books">
-				<span ng-bind="book.name"></span>
+		<!-- LOOP OVER THE BOOKS IN $scope.books -->
+			<div class="checkbox" ng-repeat="book in books | orderBy:'name'">
+				<input type="checkbox" ng-click="deleteBook(book._id)">
+				<span class="bookRow" ng-bind="book.name"></span>
 			</div>
-
 		</div>
 </div>
 

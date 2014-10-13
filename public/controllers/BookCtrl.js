@@ -24,6 +24,17 @@ angular.module('BookCtrl', []).controller('BookController', function($scope, $ht
 			});
 	};
 	
+	$scope.deleteBook = function(id) {
+		$http.delete('/libtek/books/' + id)
+			.success(function(data) {
+				console.log(data);
+				$scope.getBooks();
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+	};
+	
 	$scope.tagline = 'Your books below:';
 	
 	$scope.formData = {};
