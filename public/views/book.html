@@ -9,13 +9,19 @@
 
 <!-- LIST OF BOOKS -->
 <div id="booklist" class="row">
-		<div class="col-sm-4 col-sm-offset-4">
-		<!-- LOOP OVER THE BOOKS IN $scope.books -->
+	<div class="col-md-4">
+			<span class="bookTitle">Delete:</span>
 			<div class="checkbox" ng-repeat="book in books | orderBy:'name'">
 				<input type="checkbox" ng-click="deleteBook(book._id)">
-				<span class="bookRow" ng-bind="book.name"></span>
 			</div>
+	</div>
+	<div class="col-md-4">
+		<span class="bookTitle">Title:</span>
+		<!-- LOOP OVER THE BOOKS IN $scope.books -->
+		<div class="row" ng-repeat="book in books | orderBy:'name'">
+			<span class="bookRow" ng-bind="book.name"></span>
 		</div>
+	</div>
 </div>
 
 <!-- FORM TO CREATE BOOKS -->
@@ -34,17 +40,3 @@
 				</form>
 			</div>
 		</div>
-		
-		
-		<!--
-		<div id="bookform2" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form>
-					<div class="form-group">
-
-					<!-- createBook() WILL CREATE NEW BOOKS 
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="getBooks()">Refresh</button>
-					
-				</form>
-			</div>
-		</div>-->

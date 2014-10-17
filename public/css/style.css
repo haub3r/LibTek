@@ -46,16 +46,35 @@ h2 {
 
 #booklist {
 	background-color:white;
-	min-height:100px;
+	min-height:200px;
 	color:#33334C;
 	font-family:"Arial";
 	margin-bottom:100px;
 }
 
+.checkbox {
+	margin-left:20px;
+}
+
+.radio+.radio, .checkbox+.checkbox {
+	margin-top:-2px;
+}
+
+/*#bookHeader {
+	text-align: center;
+}
+*/
+
+.bookTitle {
+	font-family:"Bookman Old Style";
+	font-size:30px;
+	margin-left:8%;
+}
+
 .bookRow {
 	font-family:"Calibri";
 	font-size:20px;
-	margin-left:100px;
+	/*margin-left:100px;*/
 }
 
 #add {
