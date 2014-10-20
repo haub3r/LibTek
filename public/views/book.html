@@ -8,35 +8,42 @@
 
 
 <!-- LIST OF BOOKS -->
-<div id="booklist" class="row">
-	<div class="col-md-4">
-			<span class="bookTitle">Delete:</span>
-			<div class="checkbox" ng-repeat="book in books | orderBy:'name'">
-				<input type="checkbox" ng-click="deleteBook(book._id)">
+<div id="booklist">
+	<span class="bookTitle">Title:</span>
+	<span class="bookTitle">Author:</span>
+	<div id="booktable" class="row" ng-repeat="book in books | orderBy:'name'">
+		<div class="col-md-4">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" ng-click="deleteBook(book._id)">Delete</button>
+				</div>
+		</div>
+		<div class="col-md-4">
+			<!-- LOOP OVER THE BOOKS IN $scope.books -->
+			<div class="row">
+				<span class="bookRow" ng-bind="book.name"></span>
 			</div>
-	</div>
-	<div class="col-md-4">
-		<span class="bookTitle">Title:</span>
-		<!-- LOOP OVER THE BOOKS IN $scope.books -->
-		<div class="row" ng-repeat="book in books | orderBy:'name'">
-			<span class="bookRow" ng-bind="book.name"></span>
+		</div>
+		<div class="col-md-4">
+			<!-- LOOP OVER THE AUTHORS IN $scope.books -->
+			<div class="row">
+				<span class="bookRow" ng-bind="book.author"></span>
+			</div>
 		</div>
 	</div>
 </div>
 
 <!-- FORM TO CREATE BOOKS -->
-		<div id="bookform" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form>
-					<div class="form-group">
-
-						<!-- BIND THIS VALUE TO formData.name IN ANGULAR -->
-						<input id="bookname" type="text" class="form-control input-lg text-center" placeholder="New book here!" ng-model="formData.name">
-					</div>
-
-					<!-- createBook() WILL CREATE NEW BOOKS -->
-					<button id="add" type="submit" class="btn btn-primary btn-lg" ng-click="createBook()">Add</button>
-					
-				</form>
+<div id="bookform" class="row">
+	<div class="col-sm-8 col-sm-offset-2 text-center">
+		<form>
+			<div class="form-group">
+				<!-- BIND THE VALUES TO formData.name IN ANGULAR -->
+				<input id="bookname" type="text" class="form-control input-lg text-center" placeholder="Book name" ng-model="formData.name">
+				<input id="bookauthor" type="text" class="form-control input-lg text-center" placeholder="Author" ng-model="formData.author">
 			</div>
-		</div>
+
+			<!-- createBook() WILL CREATE NEW BOOKS -->
+			<button id="add" type="submit" class="btn btn-primary btn-lg" ng-click="createBook()">Add</button>
+		</form>
+	</div>
+</div>

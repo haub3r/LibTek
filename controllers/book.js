@@ -9,6 +9,7 @@ exports.postBooks = function(req, res) {
   // Set the book properties that came from the POST data
   book.name = req.body.name;
   book.type = req.body.type;
+  book.author = req.body.author;
   book.userId = req.user._id;
 
   // Save the book and check for errors

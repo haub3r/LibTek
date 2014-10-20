@@ -12,7 +12,7 @@ h2 {
 
 .col-md-4 {
 	background-color:white;
-	min-height:200px;
+	min-height:100px;
 	/*height:500px;*/
 }
 
@@ -44,21 +44,39 @@ h2 {
 	background-color:#6F7297;
 }
 
-#booklist {
+#booklist { 
+	padding-left:15px;
+	padding-right:15px;
 	background-color:white;
-	min-height:200px;
-	color:#33334C;
-	font-family:"Arial";
-	margin-bottom:100px;
 }
 
+#booktable {
+	background-color:white;
+	min-height:100px;
+	color:#33334C;
+	font-family:"Arial";
+	/*margin-bottom:0px;*/
+}
+
+/*.btn {
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:25px;
+	margin-bottom:auto;
+}
+*/
+
+/*
 .checkbox {
 	margin-left:20px;
 }
+*/
 
+ /*
 .radio+.radio, .checkbox+.checkbox {
 	margin-top:-2px;
 }
+*/
 
 /*#bookHeader {
 	text-align: center;
@@ -67,8 +85,8 @@ h2 {
 
 .bookTitle {
 	font-family:"Bookman Old Style";
-	font-size:30px;
-	margin-left:8%;
+	font-size:25px;
+	margin-left:36%;
 }
 
 .bookRow {
@@ -81,8 +99,14 @@ h2 {
 	margin-bottom:80px;
 }
 
+#home {
+	background-color:white;
+	min-height:200px;
+	
+}
+
 /*
-.homeContainer {
-	width:
+#homeContainer {
+	margin-bottom:100px;
 }
 */
